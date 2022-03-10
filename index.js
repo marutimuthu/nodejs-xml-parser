@@ -1,22 +1,15 @@
-var parseString = require('xml2js').parseString;
-// var xml = "<root>Hello xml2js!</root>"
-var xml = '<?xml version=”1.0" encoding=”UTF-8"?>' +
-'<Student>' +
-	'<PersonalInformation>' +
-		'<FirstName>Sravan</FirstName>' +
-		'<LastName>Kumar</LastName>' +
-		'<Gender>Male</Gender>' +
-	'</PersonalInformation>' +
-	'<PersonalInformation>' +
-		'<FirstName>Sudheer</FirstName>' +
-		'<LastName>Bandlamudi</LastName>' +
-		'<Gender>Male</Gender>' +
-	'</PersonalInformation>' +
-'</Student>';
+const express = require('express')
+const app = express()
+const port = 3000
 
-parseString(xml, function (err, result) {
-    console.dir(result);
-    console.dir(result.Student.PersonalInformation);
+var xmlparser = require('express-xml-bodyparser');
+app.use(xmlparser());
 
-    // let data = JSON.stringify(result)
+app.post('/test', function(req, res, next) {
+      console.log(req.body)
+  res.send("ok")
 });
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
