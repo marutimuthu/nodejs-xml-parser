@@ -14,6 +14,8 @@ var xml = '<?xml version=”1.0" encoding=”UTF-8"?>' +
 	'</PersonalInformation>' +
 '</Student>';
 
+// console.log(xml)
+
 parseString(xml, function (err, result) {
     // console.dir(result);
 
